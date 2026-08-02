@@ -2,6 +2,7 @@ export interface CarlitosCallout {
   id: string;
   title?: string;
   text: string;
+  variant?: 'carlitos' | 'historical_quote' | 'marginalia' | 'glossary' | 'alchemical' | 'context_note';
 }
 
 export interface ArchetypeTableRow {

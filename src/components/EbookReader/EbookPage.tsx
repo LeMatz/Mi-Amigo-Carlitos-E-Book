@@ -42,7 +42,7 @@ export const EbookPage: React.FC<EbookPageProps> = ({
   const selectedTextSizeClass = textSizeMap[fontSize] || textSizeMap['md'];
 
   return (
-    <article className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-10 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl relative transition-all bg-[#dfceaa] print-page-sheet">
+    <article className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-10 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl relative transition-all bg-[#dfceaa] print-page-sheet min-h-[1100px] sm:min-h-[1250px] flex flex-col justify-between">
       
       {/* Top Header & Page Header Bar */}
       <header className="border-b border-[#120e0a]/40 pb-3 mb-6 flex items-center justify-between gap-4 font-mono text-xs text-[#5d4025]">
@@ -57,20 +57,6 @@ export const EbookPage: React.FC<EbookPageProps> = ({
         </div>
 
         <div className="flex items-center gap-3">
-          {onToggleBookmark && (
-            <button
-              onClick={() => onToggleBookmark(pageData.pageNumber)}
-              className={`text-xs px-2 py-1 flex items-center gap-1 border transition-all cursor-pointer print:hidden ${
-                isBookmarked
-                  ? 'bg-[#5d4025] text-[#efe2c8] border-[#5d4025]'
-                  : 'bg-transparent text-[#120e0a] border-[#120e0a]/30 hover:border-[#120e0a]'
-              }`}
-              title={isBookmarked ? 'Quitar marcador' : 'Guardar marcador'}
-            >
-              <span>{isBookmarked ? '★ Marcada' : '☆ Marcar'}</span>
-            </button>
-          )}
-
           <div className="bg-[#120e0a] text-[#efe2c8] font-mono font-bold px-3 py-1 text-xs">
             Página {pageData.pageNumber} / 25
           </div>
@@ -134,30 +120,137 @@ export const EbookPage: React.FC<EbookPageProps> = ({
           </div>
         )}
 
-        {/* Carlitos Te Diría Callout Box */}
-        {pageData.carlitosCallout && (
-          <aside className="my-8 p-5 sm:p-7 bg-[#e8d9b8] border-2 border-double border-[#4a2e19] shadow-lg relative rounded-xs">
-            <div className="flex items-center gap-3 mb-3 border-b border-[#4a2e19]/30 pb-2">
-              <MedallionBustIcon className="w-8 h-8 text-[#5d4025] shrink-0" />
-              <div>
-                <span className="font-signature text-xl text-[#5d4025] block -mb-1">
-                  Aparte Narrativo
-                </span>
-                <h3 className="font-playfair text-base sm:text-lg font-bold text-[#1a120b] uppercase tracking-wider">
-                  {pageData.carlitosCallout.title || 'Carlitos te diría:'}
-                </h3>
+        {/* Varied Editorial Callout / Ornaments */}
+        {pageData.carlitosCallout && (() => {
+          const callout = pageData.carlitosCallout;
+          const variant = callout.variant || 'carlitos';
+
+          if (variant === 'historical_quote') {
+            return (
+              <aside className="my-8 p-5 sm:p-7 bg-[#ebdcb8] border-l-4 border-r-2 border-y border-[#120e0a] shadow-md relative rounded-xs">
+                <div className="flex items-center gap-3 mb-3 border-b border-[#120e0a]/20 pb-2">
+                  <BookOpen className="w-6 h-6 text-[#4a2e19] shrink-0" />
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-[#5d4025] block">
+                      Fragmento de Archivo
+                    </span>
+                    <h3 className="font-playfair text-base sm:text-lg font-bold text-[#120e0a] uppercase tracking-wider">
+                      {callout.title || 'Cita Histórica de C. G. Jung:'}
+                    </h3>
+                  </div>
+                </div>
+                <p className="font-cormorant italic text-lg sm:text-xl text-[#120e0a] leading-relaxed font-semibold">
+                  "{callout.text}"
+                </p>
+                <div className="mt-3 pt-2 text-[10px] font-mono text-right text-[#4a2e19] uppercase border-t border-[#120e0a]/10">
+                  • C. G. Jung (Obras Completas / Archivo Histórico)
+                </div>
+              </aside>
+            );
+          }
+
+          if (variant === 'marginalia') {
+            return (
+              <aside className="my-8 p-5 sm:p-6 bg-[#d9c7a3] border-2 border-dashed border-[#4a2e19]/60 shadow-sm relative rounded-xs">
+                <div className="flex items-center gap-3 mb-2 border-b border-[#4a2e19]/30 pb-1.5">
+                  <Layers className="w-5 h-5 text-[#4a2e19] shrink-0" />
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-[#4a2e19] block font-bold">
+                      Anotación de Cuaderno
+                    </span>
+                    <h3 className="font-playfair text-sm sm:text-base font-bold text-[#120e0a] uppercase tracking-wider">
+                      {callout.title || 'Nota Marginal de Archivo:'}
+                    </h3>
+                  </div>
+                </div>
+                <p className="font-old-standard text-sm sm:text-base text-[#120e0a] leading-relaxed italic">
+                  {callout.text}
+                </p>
+                <div className="mt-2 text-[10px] font-mono text-right text-[#4a2e19]">
+                  • Manuscrito Liber Novus / Archivo Küsnacht
+                </div>
+              </aside>
+            );
+          }
+
+          if (variant === 'glossary') {
+            return (
+              <aside className="my-8 p-5 sm:p-6 bg-[#e3d0aa] border border-[#120e0a] shadow-inner relative rounded-xs">
+                <div className="flex items-center gap-2.5 mb-2 pb-1.5 border-b border-[#120e0a]/30">
+                  <CompassStarIcon className="w-6 h-6 text-[#120e0a] shrink-0" />
+                  <h3 className="font-playfair text-sm sm:text-base font-bold text-[#120e0a] uppercase tracking-wider">
+                    {callout.title || 'Glosario Térmico Analítico:'}
+                  </h3>
+                </div>
+                <p className="font-old-standard text-xs sm:text-sm text-[#120e0a] leading-relaxed">
+                  {callout.text}
+                </p>
+              </aside>
+            );
+          }
+
+          if (variant === 'alchemical') {
+            return (
+              <aside className="my-8 p-5 sm:p-7 bg-[#382618] text-[#efe2c8] border-2 border-[#120e0a] shadow-xl relative rounded-xs">
+                <div className="flex items-center gap-3 mb-3 border-b border-[#efe2c8]/20 pb-2">
+                  <GreekGoddessIcon className="w-7 h-7 text-[#dfceaa] shrink-0" />
+                  <div>
+                    <span className="font-signature text-lg text-[#dfceaa] block -mb-1">
+                      Mysterium Coniunctionis
+                    </span>
+                    <h3 className="font-playfair text-sm sm:text-base font-bold text-[#efe2c8] uppercase tracking-wider">
+                      {callout.title || 'Paralelo Hermético & Simbolismo:'}
+                    </h3>
+                  </div>
+                </div>
+                <p className="font-cormorant italic text-lg sm:text-xl text-[#f3e7d0] leading-relaxed">
+                  "{callout.text}"
+                </p>
+              </aside>
+            );
+          }
+
+          if (variant === 'context_note') {
+            return (
+              <aside className="my-8 p-5 sm:p-6 bg-[#d2bf98]/70 border-l-4 border-[#5d4025] shadow-sm relative rounded-xs">
+                <div className="flex items-center gap-2.5 mb-2 pb-1.5 border-b border-[#5d4025]/30">
+                  <HelpCircle className="w-5 h-5 text-[#5d4025] shrink-0" />
+                  <h3 className="font-playfair text-sm sm:text-base font-bold text-[#120e0a] uppercase tracking-wider">
+                    {callout.title || 'Nota de Contexto Histórico:'}
+                  </h3>
+                </div>
+                <p className="font-old-standard text-xs sm:text-sm text-[#120e0a] leading-relaxed">
+                  {callout.text}
+                </p>
+              </aside>
+            );
+          }
+
+          // Default 'carlitos' variant
+          return (
+            <aside className="my-8 p-5 sm:p-7 bg-[#e8d9b8] border-2 border-double border-[#4a2e19] shadow-lg relative rounded-xs">
+              <div className="flex items-center gap-3 mb-3 border-b border-[#4a2e19]/30 pb-2">
+                <MedallionBustIcon className="w-8 h-8 text-[#5d4025] shrink-0" />
+                <div>
+                  <span className="font-signature text-xl text-[#5d4025] block -mb-1">
+                    Aparte Narrativo
+                  </span>
+                  <h3 className="font-playfair text-base sm:text-lg font-bold text-[#1a120b] uppercase tracking-wider">
+                    {callout.title || 'Carlitos te diría:'}
+                  </h3>
+                </div>
               </div>
-            </div>
 
-            <p className="font-cormorant italic text-lg sm:text-xl text-[#1a120b] leading-relaxed font-semibold">
-              "{pageData.carlitosCallout.text}"
-            </p>
+              <p className="font-cormorant italic text-lg sm:text-xl text-[#1a120b] leading-relaxed font-semibold">
+                "{callout.text}"
+              </p>
 
-            <div className="mt-3 pt-2 text-[10px] font-mono text-right text-[#5d4025] uppercase">
-              • C. G. Jung (Reflexión personal)
-            </div>
-          </aside>
-        )}
+              <div className="mt-3 pt-2 text-[10px] font-mono text-right text-[#5d4025] uppercase">
+                • C. G. Jung (Reflexión personal)
+              </div>
+            </aside>
+          );
+        })()}
 
         {/* CHAPTER 3: Archetypes Table Content */}
         {pageData.tableData && pageData.tableData.length > 0 && (
@@ -329,27 +422,9 @@ export const EbookPage: React.FC<EbookPageProps> = ({
         </div>
 
         <div className="flex items-center gap-3">
-          {pageData.pageNumber > 1 && onNavigatePage && (
-            <button
-              onClick={() => onNavigatePage(pageData.pageNumber - 1)}
-              className="px-3 py-1 bg-[#d8c29b] text-[#120e0a] border border-[#120e0a] hover:bg-[#c9b28a] transition-all cursor-pointer print:hidden"
-            >
-              ← Pág {pageData.pageNumber - 1}
-            </button>
-          )}
-
           <span className="font-bold text-[#120e0a]">
             Pág {pageData.pageNumber} de 25
           </span>
-
-          {pageData.pageNumber < 25 && onNavigatePage && (
-            <button
-              onClick={() => onNavigatePage(pageData.pageNumber + 1)}
-              className="px-3 py-1 bg-[#120e0a] text-[#efe2c8] hover:bg-[#382618] transition-all cursor-pointer print:hidden"
-            >
-              Pág {pageData.pageNumber + 1} →
-            </button>
-          )}
         </div>
       </footer>
 

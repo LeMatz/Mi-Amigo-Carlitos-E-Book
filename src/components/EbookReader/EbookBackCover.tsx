@@ -15,8 +15,8 @@ export const EbookBackCover: React.FC<EbookBackCoverProps> = ({
   onOpenWorkbookManager,
 }) => {
   return (
-    <div className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-8 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl bg-[#dfceaa] print-page-sheet">
-      <div className="border-4 border-double border-[#120e0a] p-4 sm:p-8 relative bg-[#e3d2b0]/60 text-center space-y-6">
+    <div className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-8 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl bg-[#dfceaa] print-page-sheet min-h-[1100px] sm:min-h-[1250px] flex flex-col justify-between">
+      <div className="border-4 border-double border-[#120e0a] p-4 sm:p-8 relative bg-[#e3d2b0]/60 text-center min-h-[1020px] sm:min-h-[1170px] flex-1 flex flex-col justify-between">
         
         {/* Header Badge */}
         <div className="text-center space-y-1">
@@ -81,33 +81,6 @@ export const EbookBackCover: React.FC<EbookBackCoverProps> = ({
         </div>
 
         <OrnamentalDivider variant="double" className="my-4" />
-
-        {/* Action Controls */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 print:hidden">
-          <button
-            onClick={onReturnToCover}
-            className="w-full sm:w-auto px-6 py-3 bg-[#120e0a] text-[#efe2c8] font-playfair font-bold text-xs uppercase hover:bg-[#382618] transition-all flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <RotateCcw className="w-4 h-4" />
-            Volver a la Portada
-          </button>
-
-          <button
-            onClick={onOpenIndex}
-            className="w-full sm:w-auto px-6 py-3 bg-[#d8c29b] text-[#120e0a] border border-[#120e0a] font-playfair font-bold text-xs uppercase hover:bg-[#c9b28a] transition-all flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <BookOpen className="w-4 h-4" />
-            Índice de Páginas
-          </button>
-
-          <button
-            onClick={onOpenWorkbookManager}
-            className="w-full sm:w-auto px-6 py-3 bg-[#5d4025] text-[#efe2c8] font-playfair font-bold text-xs uppercase hover:bg-[#4a2e19] transition-all flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <CheckCircle className="w-4 h-4" />
-            Ver mi Cuaderno Completado
-          </button>
-        </div>
 
         {/* Technical Registry Bar */}
         <div className="pt-6 border-t border-[#120e0a]/30 font-mono text-[10px] text-[#5d4025] flex flex-col sm:flex-row justify-between items-center gap-2">

@@ -12,9 +12,7 @@ export const NewspaperHeader: React.FC<NewspaperHeaderProps> = ({
 
   return (
     <header className="w-full max-w-7xl mx-auto px-2 sm:px-4 pt-3 sm:pt-6 pb-2">
-      {/* Top Nav Dropdown Menu on the Right (replaces top bar) */}
-      <NavWheelMenu onOpenRegisterModal={onOpenRegisterModal} />
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 my-1 sm:my-2">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 my-1 sm:my-2">
           {/* Brand Left Ornament / Column */}
           <div className="hidden lg:block w-48 text-left border-r border-[#120e0a]/30 pr-4 text-sm font-serif font-medium text-[#4a2e19] leading-tight">
             &ldquo;No enseñamos teorías muertas. Invitamos a una aventura interior profunda.&rdquo;

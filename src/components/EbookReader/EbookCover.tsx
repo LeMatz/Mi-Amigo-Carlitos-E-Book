@@ -1,7 +1,7 @@
 import React from 'react';
 import { OrnamentalDivider } from '../OrnamentalDivider';
 import { GreekGoddessIcon, WaxSealBadge } from '../VintageSvgIcons';
-import { BookOpen, Compass, Bookmark, ArrowRight, Sparkles } from 'lucide-react';
+import { Camera, Image as ImageIcon } from 'lucide-react';
 
 interface EbookCoverProps {
   onStartReading: () => void;
@@ -10,10 +10,10 @@ interface EbookCoverProps {
 
 export const EbookCover: React.FC<EbookCoverProps> = ({ onStartReading, onOpenIndex }) => {
   return (
-    <div className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-8 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl relative overflow-hidden transition-all duration-300 print-page-sheet">
+    <div className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-8 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl relative overflow-hidden transition-all duration-300 print-page-sheet min-h-[1100px] sm:min-h-[1250px] flex flex-col justify-between bg-[#dfceaa]">
       
       {/* Outer Decorative Vintage Frame */}
-      <div className="border-4 border-double border-[#120e0a] p-4 sm:p-8 relative bg-[#e3d2b0]/50">
+      <div className="border-4 border-double border-[#120e0a] p-4 sm:p-8 relative bg-[#e3d2b0]/50 min-h-[1020px] sm:min-h-[1170px] flex-1 flex flex-col justify-between">
         
         {/* Corner Ornaments */}
         <div className="absolute top-2 left-2 text-[#4a2e19] text-xs font-serif opacity-70">❖</div>
@@ -22,28 +22,30 @@ export const EbookCover: React.FC<EbookCoverProps> = ({ onStartReading, onOpenIn
         <div className="absolute bottom-2 right-2 text-[#4a2e19] text-xs font-serif opacity-70">❖</div>
 
         {/* Top Header Label */}
-        <div className="text-center space-y-1 mb-6">
-          <div className="text-xs tracking-[0.3em] font-playfair uppercase text-[#4a2e19] font-bold">
-            Colección de Psicología Analítica • Edición de Archivo
-          </div>
-          <div className="text-[10px] tracking-widest font-mono text-[#5d4025]">
-            DOCUMENTO INSTRUCCIONAL & GUÍA DE AUTOCONOCIMIENTO
-          </div>
-        </div>
-
-        <OrnamentalDivider variant="double" className="my-3" />
-
-        {/* Center Graphic & Title Block */}
-        <div className="flex flex-col items-center justify-center text-center py-6 sm:py-10 space-y-4">
-          
-          <div className="relative my-2">
-            <GreekGoddessIcon className="w-20 h-20 sm:w-28 sm:h-28 text-[#120e0a] drop-shadow-sm" />
-            <div className="absolute -bottom-2 -right-2">
-              <WaxSealBadge text="JUNG" className="w-10 h-10 text-[9px]" />
+        <div>
+          <div className="text-center space-y-1 mb-4">
+            <div className="text-xs tracking-[0.3em] font-playfair uppercase text-[#4a2e19] font-bold">
+              Colección de Psicología Analítica • Edición de Archivo
+            </div>
+            <div className="text-[10px] tracking-widest font-mono text-[#5d4025]">
+              DOCUMENTO INSTRUCCIONAL & GUÍA DE AUTOCONOCIMIENTO
             </div>
           </div>
 
-          <div className="space-y-2 max-w-2xl">
+          <OrnamentalDivider variant="double" className="my-3" />
+        </div>
+
+        {/* Center Graphic, Title & Reserved Photograph Frame */}
+        <div className="flex flex-col items-center justify-center text-center py-4 space-y-4 my-auto">
+          
+          <div className="relative my-1">
+            <GreekGoddessIcon className="w-16 h-16 sm:w-24 sm:h-24 text-[#120e0a] drop-shadow-sm" />
+            <div className="absolute -bottom-2 -right-2">
+              <WaxSealBadge text="JUNG" className="w-9 h-9 text-[9px]" />
+            </div>
+          </div>
+
+          <div className="space-y-1 max-w-2xl">
             <span className="font-signature text-2xl sm:text-4xl text-[#5d4025] block -mb-2">
               Colección Especial
             </span>
@@ -57,46 +59,38 @@ export const EbookCover: React.FC<EbookCoverProps> = ({ onStartReading, onOpenIn
 
           <OrnamentalDivider variant="fleuron" className="my-2 max-w-md" />
 
-          {/* Core Description Box */}
-          <div className="bg-[#d2bf98]/60 p-4 sm:p-6 border border-[#120e0a] max-w-xl text-left font-old-standard text-xs sm:text-sm text-[#120e0a] space-y-2 leading-relaxed shadow-inner">
-            <p className="drop-cap">
-              <strong className="font-bold">Un viaje de 25 páginas</strong> por las profundidades de la psique humana. Presentamos la obra de C. G. Jung desde la voz cercana de "Carlitos" —un interlocutor cercano que aclara los conceptos técnicos sin sacrificar el rigor científico.
-            </p>
-            <div className="pt-2 text-[11px] font-mono text-[#4a2e19] flex flex-wrap gap-2 justify-between border-t border-[#120e0a]/30">
-              <span>• 5 Capítulos Integrales</span>
-              <span>• Tabla de Arquetipos</span>
-              <span>• Ejercicios Prácticos</span>
+          {/* Reserved Space for Photograph Frame */}
+          <div className="w-full max-w-md my-4 p-6 sm:p-8 border-2 border-dashed border-[#120e0a]/60 bg-[#eedebf]/80 flex flex-col items-center justify-center text-center space-y-3 rounded-xs relative shadow-inner min-h-[220px]">
+            {/* Vintage Frame Corner Accents */}
+            <div className="absolute top-2 left-2 text-[#5d4025] font-serif text-xs">┌</div>
+            <div className="absolute top-2 right-2 text-[#5d4025] font-serif text-xs">┐</div>
+            <div className="absolute bottom-2 left-2 text-[#5d4025] font-serif text-xs">└</div>
+            <div className="absolute bottom-2 right-2 text-[#5d4025] font-serif text-xs">┘</div>
+            
+            <div className="p-3 bg-[#e2d0ab] border border-[#120e0a]/40 rounded-full text-[#4a2e19] shadow-sm">
+              <Camera className="w-7 h-7 sm:w-9 sm:h-9" />
+            </div>
+            
+            <div className="space-y-1">
+              <span className="font-playfair font-bold text-xs sm:text-sm text-[#120e0a] uppercase tracking-wider block">
+                [ Espacio Reservado para Fotografía ]
+              </span>
+              <p className="font-cormorant italic text-xs sm:text-sm text-[#4a2e19]">
+                Retrato de C. G. Jung, fotografía de archivo o imagen del estudio
+              </p>
             </div>
           </div>
 
         </div>
 
-        <OrnamentalDivider variant="stars" className="my-4" />
+        <div>
+          <OrnamentalDivider variant="stars" className="my-3" />
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 print:hidden">
-          <button
-            onClick={onStartReading}
-            className="w-full sm:w-auto px-8 py-3.5 bg-[#1a120b] hover:bg-[#382618] text-[#efe2c8] font-playfair font-bold text-sm tracking-wider uppercase border border-[#efe2c8]/30 shadow-lg flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-          >
-            <BookOpen className="w-4 h-4 text-[#dfceaa]" />
-            Comenzar Lectura (Página 1)
-            <ArrowRight className="w-4 h-4" />
-          </button>
-
-          <button
-            onClick={onOpenIndex}
-            className="w-full sm:w-auto px-6 py-3.5 bg-[#d8c29b] hover:bg-[#c9b28a] text-[#120e0a] font-playfair font-bold text-xs tracking-wider uppercase border border-[#120e0a] flex items-center justify-center gap-2 transition-all cursor-pointer"
-          >
-            <Compass className="w-4 h-4" />
-            Índice Interactivo (25 Págs)
-          </button>
-        </div>
-
-        {/* Footer Meta info */}
-        <div className="mt-8 pt-4 border-t border-[#120e0a]/30 flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono text-[#5d4025] gap-2">
-          <span>EDICIÓN 2026 • REGISTRO PSICOLÓGICO INSTRUCCIONAL</span>
-          <span>TEXTO INTEGRAL AUTOCONTENIDO</span>
+          {/* Footer Meta info */}
+          <div className="pt-3 border-t border-[#120e0a]/30 flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono text-[#5d4025] gap-2">
+            <span>EDICIÓN 2026 • REGISTRO PSICOLÓGICO INSTRUCCIONAL</span>
+            <span>TEXTO INTEGRAL AUTOCONTENIDO</span>
+          </div>
         </div>
 
       </div>

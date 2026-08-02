@@ -148,8 +148,8 @@ html {
 /* PDF & Print Styles */
 @media print {
   @page {
-    size: A4 portrait;
-    margin: 12mm 15mm;
+    size: 8.5in 14in portrait;
+    margin: 8mm 10mm;
   }
 
   body {
@@ -178,6 +178,10 @@ html {
   }
 
   .print-page-sheet {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 12.8in !important;
+    box-sizing: border-box !important;
     page-break-after: always !important;
     break-after: page !important;
     page-break-inside: avoid !important;

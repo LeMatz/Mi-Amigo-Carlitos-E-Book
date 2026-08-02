@@ -93,8 +93,9 @@ export const EBOOK_PAGES: EbookPageData[] = [
     ],
     carlitosCallout: {
       id: 'carlitos-intro-2',
-      title: 'Carlitos te diría:',
-      text: 'La gente hace lo imposible, por absurdo que sea, para evitar enfrentarse a su propia alma. Pero nadie se ilumina fantaseando figuras de luz, sino haciendo consciente su propia oscuridad. El trabajo de integración es doloroso, sí, pero es el único precio digno para dejar de ser un autómata.'
+      title: 'Nota de Contexto Histórico:',
+      variant: 'context_note',
+      text: 'Aunque las prácticas actuales de autoconocimiento y coaching son disciplinas del siglo XXI, la preocupación de Jung por la crisis de sentido y el agotamiento del individuo frente al colectivismo anticipó con precisión las búsquedas de la cultura contemporánea.'
     }
   },
 
@@ -121,7 +122,13 @@ export const EBOOK_PAGES: EbookPageData[] = [
       'Fue en Burghölzli donde Jung desarrolló sus célebres experimentos sobre el *test de asociación de palabras*. Al medir el tiempo de respuesta y las reacciones fisiológicas de los sujetos frente a una lista de estímulos verbales, demostró de manera empírica la existencia de agrupaciones de ideas con una fuerte carga afectiva inconsciente, acuñando rigurosamente el concepto científico de *complejo* (*Komplex*).',
       'En 1907, atraído por las innovadoras teorías sobre la histeria y el inconsciente expuestas en *La interpretación de los sueños*, Jung viajó a Viena para conocer a Sigmund Freud. El primer encuentro derivó en una conversación ininterrumpida de trece horas. Durante años, Freud consideró a Jung como su "príncipe heredero" y el líder natural del movimiento psicoanalítico internacional. Sin embargo, las discrepancias conceptuales fueron acentuándose de forma irreversible.',
       'Mientras Freud concebía la *libido* en términos predominantemente impulsivos y sexuales y el inconsciente como un mero depósito de deseos reprimidos, Jung planteaba que la libido era energía psíquica general no reducible al factor sexual y que el inconsciente albergaba estratos creativo-estructurales más profundos. Tras la publicación de *Símbolos de transformación* (1912), donde Jung hizo pública su discrepancia teórica, la relación profesional y personal entre ambos se quebró definitivamente en 1913.'
-    ]
+    ],
+    carlitosCallout: {
+      id: 'carlitos-bio-1',
+      title: 'Cita Histórica de C. G. Jung (1907):',
+      variant: 'historical_quote',
+      text: 'Lo que no hacemos consciente se nos presenta en la vida como destino. El test de asociación de palabras demostró empíricamente que nuestros complejos inconscientes poseen una autonomía insospechada que la voluntad racional no puede acallar por la fuerza.'
+    }
   },
   {
     pageNumber: 4,
@@ -145,8 +152,9 @@ export const EBOOK_PAGES: EbookPageData[] = [
     ],
     carlitosCallout: {
       id: 'carlitos-bio-2',
-      title: 'Carlitos te diría:',
-      text: 'Cuando me separé de Freud, el mundo teórico bajo mis pies se desmoronó. Tuve miedo de volverme loco. Pero me senté en mi escritorio y dije: "Si he de explorar este territorio desconocido, lo haré con la disciplina de un científico y la valentía de un marinero". No temas a tus noches oscuras; son los laboratorios donde se templa la verdad.'
+      title: 'Nota Marginal de Archivo:',
+      variant: 'marginalia',
+      text: 'Durante su periodo de confrontación con el inconsciente (1913-1919), Jung dedicó infinitas horas a la caligrafía y pintura minuciosa en el Liber Novus. Descubrió que plasmar plásticamente los símbolos frenaba la inundación emocional y permitía dialogar con ellos.'
     }
   },
 
@@ -186,7 +194,13 @@ export const EBOOK_PAGES: EbookPageData[] = [
       'Para ilustrar esta distinción, Jung recurría con frecuencia a una analogía tomada de la mineralogía: el arquetipo es comparable al sistema cristalino de una red molecular sumergida en una solución madre. El sistema cristalino determina la forma matemática en que el mineral habrá de cristalizar, pero el cristal en sí no posee sustancia física hasta que los átomos de la solución precipitan en él. Del mismo modo, el arquetipo es un cauce invisible que canaliza la energía psíquica.',
       'Podemos definir el arquetipo como el correlato psíquico del instinto biológico. Así como un ave migratoria hereda el patrón conductual instintivo de construir su nido de determinada manera sin necesidad de aprendizaje formal previas, el ser humano hereda patrones predisposicionales para experimentar el mundo: la predisposición a percibir la figura materna, a confrontar la muerte, a buscar un sentido heroico o a sobrecogerse ante lo sagrado.',
       'Cuando un arquetipo entra en contacto con las vivencias concretas de la historia personal de un sujeto, adquiere ropaje perceptual y se manifiesta en la conciencia como una *representación o imago arquetípica*. Por consiguiente, aunque los símbolos y mitos varíen formalmente entre el Egipto faraónico, la Grecia clásica o un sueño contemporáneo, el núcleo arquetípico subyacente permanece estructuralmente idéntico.'
-    ]
+    ],
+    carlitosCallout: {
+      id: 'carlitos-cap1-2',
+      title: 'Paralelo Hermético & Cristalografía:',
+      variant: 'alchemical',
+      text: 'El arquetipo es como el sistema cristalino de una solución saturada: prefija la geometría del cristal antes de que este exista físicamente. El arquetipo organiza la percepción pero carece de sustancia hasta que precipita en la vivencia del individuo.'
+    }
   },
   {
     pageNumber: 7,
@@ -221,7 +235,13 @@ export const EBOOK_PAGES: EbookPageData[] = [
       'El motor fundamental que impulsa la individuación es la dinámica entre los pares de opuestos que constituyen la psique (luz y sombra, razón e intuición, máscara y autenticidad). Para comprender esta dinámica, Jung rescató de la filosofía presocrática de Heráclito el término *Enantiodromía* ("correr hacia el opuesto"). La enantiodromía establece que toda fuerza o actitud psíquica llevada a un extremo unilateral e insostenible provocará inevitablemente la irrupción brusca de su polo opuesto.',
       'En la práctica de vida, la enantiodromía se manifiesta cuando una persona que ha reprimido sus necesidades emocionales en nombre de un hiperracionalismo frío colapsa repentinamente en un ataque de angustia incontrolable, o cuando una posición dogmática inflexible se desmorona dando paso a la duda destructiva. La psique no tolera la tiranía de la unilateralidad.',
       'El camino de la individuación no consiste en la victoria de un polo sobre el otro, sino en el sostenimiento consciente de la *tensión entre los opuestos*. Al rehusarse a reprimir o a actuar compulsivamente cualquiera de los extremos, la psique genera una síntesis superior a través de lo que Jung denominó la *función trascendente*, uniendo lo consciente y lo inconsciente en una nueva posición simbólica.'
-    ]
+    ],
+    carlitosCallout: {
+      id: 'carlitos-cap1-4',
+      title: 'Glosario Térmico Analítico:',
+      variant: 'glossary',
+      text: 'Enantiodromía (del griego enantios: opuesto, dromos: carrera). Principio heredado de Heráclito según el cual toda actitud o fuerza psíquica llevada a un extremo insostenible genera bruscamente la irrupción de su polo opuesto.'
+    }
   },
   {
     pageNumber: 9,
@@ -239,8 +259,9 @@ export const EBOOK_PAGES: EbookPageData[] = [
     ],
     carlitosCallout: {
       id: 'carlitos-cap1-5',
-      title: 'Carlitos te diría:',
-      text: 'El coaching sin profundidad es como pintar las paredes de una casa cuyos cimientos se están hundiendo. Puedes cambiar tus metas cada semana y llenar tu agenda de afirmaciones positivas, pero hasta que no descubras qué mito arquetípico estás viviendo a ciegas, seguirás llamando "destino" a tus propios complejos reprimidos.'
+      title: 'Nota de Contexto Histórico:',
+      variant: 'context_note',
+      text: 'Es necesario señalar que el "coaching" como disciplina profesional contemporánea no existía en tiempos de C. G. Jung. La inclusión del enfoque analítico en consultoría actual es un desarrollo reciente que no sustituye la clínica médica, sino que aporta profundidad reflexiva.'
     }
   },
 
@@ -283,8 +304,9 @@ export const EBOOK_PAGES: EbookPageData[] = [
     ],
     carlitosCallout: {
       id: 'carlitos-cap2-2',
-      title: 'Carlitos te diría:',
-      text: 'Si te pasas el día actuando como un titán invencible que todo lo controla con mano de hierro, no te extrañe que por la noche tu inconsciente te regale un sueño donde tropiezas con una piedra insignificante y te desmoronas en lágrimas frente a un niño. El sueño no te insulta; te devuelve la humanidad que olvidaste en la oficina.'
+      title: 'Cita Histórica de C. G. Jung:',
+      variant: 'historical_quote',
+      text: 'El sueño es la pequeña puerta escondida en el santuario más íntimo y secreto del alma, que se abre hacia esa noche cósmica que era psique mucho antes de que existiera el Yo consciente.'
     }
   },
   {
@@ -300,7 +322,13 @@ export const EBOOK_PAGES: EbookPageData[] = [
       '1. **Introducción / Lugar y Personajes**: Establecimiento del escenario psíquico, el tiempo y los actores del drama onírico. 2. **Desarrollo de la Trama**: La situación se complica; aparece un conflicto o una tensión inesperada. 3. **Clímax o Peripecias**: El momento de máxima intensidad emocional donde ocurre un cambio de rumbo crucial. 4. **Lisis / Resultado**: La resolución o desenlace del sueño, que muestra la actitud final del inconsciente frente al problema planteado.',
       'A la hora de interpretar el contenido, Jung descartó la técnica de la *asociación libre* impulsada por Freud —que tendía a alejarse progresivamente del sueño para derivar en los complejos personales habituales del paciente— y creó en su lugar el método de la *Amplificación*.',
       'La Amplificación consiste en mantener la atención firmemente anclada en la imagen onírica concreta, rodeándola de un círculo de asociaciones relacionadas: tanto del contexto personal e histórico del soñante como de paralelos mitológicos, folclóricos, artísticos y religiosos de la humanidad. La amplificación le devuelve a la imagen su riqueza simbólica completa.'
-    ]
+    ],
+    carlitosCallout: {
+      id: 'carlitos-cap2-3',
+      title: 'Nota Marginal de Archivo:',
+      variant: 'marginalia',
+      text: 'El método de amplificación diferencia a la psicología analítica del libre asociacionismo. La amplificación circunvala la imagen del sueño relacionándola con mitos y símbolos universales para preservar su riqueza original.'
+    }
   },
   {
     pageNumber: 13,
@@ -335,7 +363,13 @@ export const EBOOK_PAGES: EbookPageData[] = [
       'Retirar una proyección implica realizar un movimiento de honestidad radical: admitir que la arrogancia insoportable que tanto me indigna en mi compañero de trabajo, o la creatividad luminosa que idolatro en mi mentor de forma casi religiosa, son facetas de mi propia psique que no he tenido el valor de reconocer, cultivar o asumir.',
       'Cuando el sujeto retira sus proyecciones de la Sombra, deja de chivo expiatorio al entorno y asume la responsabilidad de sus impulsos destructivos o envidias no asimiladas. Cuando retira las proyecciones de la Persona o del Anima/Animus, libera a sus parejas y amigos de la carga aplastante de tener que encarnar sus fantasías arquetípicas insostenibles.',
       'Este trabajo de desmantelamiento de proyecciones, lectura compensatoria de los sueños y escucha de los símbolos constituye el puente directo hacia los ejercicios prácticos del Capítulo 5. A través de ellos, la teoría se transforma en una práctica concreta de autoconocimiento y acción conductual.'
-    ]
+    ],
+    carlitosCallout: {
+      id: 'carlitos-cap2-5',
+      title: 'Glosario Térmico Analítico:',
+      variant: 'glossary',
+      text: 'Retiro de Proyecciones (Withdrawing Projections): Acto ético y reflexivo mediante el cual el sujeto reconoce que las virtudes luminosas o defectos intolerables percibidos en el entorno pertenecen a su propia psique no asimilada.'
+    }
   },
 
   // ==========================================
@@ -357,15 +391,16 @@ export const EBOOK_PAGES: EbookPageData[] = [
     ],
     carlitosCallout: {
       id: 'carlitos-cap3-1',
-      title: 'Carlitos te diría:',
-      text: 'No memorices esta tabla como si fuera una lista de la compra o una clasificación zoológica. La psique no es un cajón de madera dividido en compartimentos fijos. Usa estos nombres como linternas para orientarte en medio de la niebla, sabiendo siempre que la vida real se burla de nuestras etiquetas rígidas.'
+      title: 'Cita Histórica de C. G. Jung:',
+      variant: 'historical_quote',
+      text: 'No existen sólo doce o catorce arquetipos fijos. Hay tantos arquetipos como situaciones típicas en la vida humana. Las infinitas repeticiones han grabado estos patrones en nuestra constitución psíquica.'
     }
   },
   {
     pageNumber: 16,
     chapterId: 3,
     sectionTitle: 'Capítulo 3 — Tabla de Arquetipos Principales',
-    pageTitle: 'Tabla de Arquetipos — Parte 1: Estructuras Principales',
+    pageTitle: 'Estructuras Intrapsíquicas Fundamentales',
     subtitle: 'Persona, Sombra, Anima/Animus y Self (Estructuras formalizadas por Jung)',
     contentType: 'table',
     tableData: [
@@ -396,13 +431,19 @@ export const EBOOK_PAGES: EbookPageData[] = [
     ],
     paragraphs: [
       'Esta primera sección de la tabla condensa las cuatro columnas vertebrales de la topografía psíquica junguiana. Observará el lector que cada arquetipo posee tanto una manifestación estructurante indispensable para la vida (por ejemplo, la Persona nos permite adaptarnos a la sociedad sin colapsar) como una contracara destructiva cuando se polariza en exceso.'
-    ]
+    ],
+    carlitosCallout: {
+      id: 'carlitos-cap3-2',
+      title: 'Paralelo Hermético & Topografía:',
+      variant: 'alchemical',
+      text: 'La Persona es la vestimenta alquímica para tratar con el mundo exterior; la Sombra es la Nigredo (la materia no purificada); el Anima/Animus es la Syzygia o bodas sagradas; y el Self es el Lapis Philosophorum.'
+    }
   },
   {
     pageNumber: 17,
     chapterId: 3,
     sectionTitle: 'Capítulo 3 — Tabla de Arquetipos Principales',
-    pageTitle: 'Tabla de Arquetipos — Parte 2: Patrones Dinámicos',
+    pageTitle: 'Patrones Míticos y Arquetipos Dinámicos',
     subtitle: 'El Héroe, El Sabio y La Gran Madre',
     contentType: 'table',
     tableData: [
@@ -433,7 +474,7 @@ export const EBOOK_PAGES: EbookPageData[] = [
     pageNumber: 18,
     chapterId: 3,
     sectionTitle: 'Capítulo 3 — Tabla de Arquetipos Principales',
-    pageTitle: 'Tabla de Arquetipos — Parte 3: Renovación y Dualidad',
+    pageTitle: 'Arquetipos de Renovación y Dualidad',
     subtitle: 'El Niño Divino y El Trickster (El Embaucador)',
     contentType: 'table',
     tableData: [
@@ -475,7 +516,13 @@ export const EBOOK_PAGES: EbookPageData[] = [
       'La psicología analítica no quedó petrificada como un monumento estático tras la muerte de Jung. Por el contrario, un grupo extraordinario de discípulos directos y colaboradores dedicó sus vidas a sistematizar, profundizar y expandir los descubrimientos del maestro suizo.',
       '**Marie-Louise von Franz (1915 - 1998)** es considerada con justicia la heredera intelectual más cercana a Jung. Conoció a Jung a los 18 años y colaboró con él ininterrumpidamente durante más de tres décadas, especialmente en la traducción e interpretación de textos latinos y griegos de alquimia. El aporte genial y propio de Von Franz estriba en la demostración de que los *cuentos de hadas tradicionales* constituyen la manifestación más pura, directa e incólume del inconsciente colectivo, desprovista de las elaboraciones culturales complejas de las grandes mitologías. Obras suyas como *La interpretación de los cuentos de hadas* y *El Puer Aeternus* son piezas maestras de la literatura junguiana.',
       '**Erich Neumann (1905 - 1960)**, médico y psicólogo analítico alemán que emigró a Tel Aviv huyendo del nazismo, mantuvo un fructífero intercambio epistolar con Jung. Neumann realizó una contribución monumental al articular el desarrollo de la conciencia individual con la historia evolutiva de la humanidad en su obra cumbre *Las etapas iniciales de la evolución de la conciencia* (1949), para la cual Jung escribió un prólogo lleno de entusiasmo. Su estudio sobre *La Gran Madre* sigue siendo la referencia obligada para comprender la arqueología del arquetipo femenino.'
-    ]
+    ],
+    carlitosCallout: {
+      id: 'carlitos-cap4-1',
+      title: 'Cita Histórica (Marie-Louise von Franz):',
+      variant: 'historical_quote',
+      text: 'Los cuentos de hadas representan la anatomía comparada de la psique. En ellos el inconsciente colectivo se expresa sin los ropajes dogmáticos ni los sesgos de las grandes religiones organizadas.'
+    }
   },
   {
     pageNumber: 20,
@@ -508,7 +555,13 @@ export const EBOOK_PAGES: EbookPageData[] = [
       'Gracias a los aportes diferenciados de Von Franz, Neumann, Jaffé y Hillman, la psicología analítica contemporánea dispone de un arsenal hermenéutico y práctico de incalculable valor para la labor de coaching y autoconocimiento.',
       'Hoy comprendemos que cuando trabajamos con el relato autobiográfico de un cliente, podemos acudir a Von Franz para identificar los patrones narrativos de los cuentos de hadas que estructuran sus bloqueos infantiles; a Neumann para ubicar el estadio de desarrollo de su conciencia respecto de la Gran Madre o del Dragón de la dependencia; y a Hillman para honrar la riqueza poética y la singularidad inolvidable de su síntoma sin prisa por "normalizarlo".',
       'El legado junguiano ha demostrado una vitalidad asombrosa para adaptarse a las demandas del siglo XXI, influyendo decisivamente en la mitología comparada (Joseph Campbell), la psicología profunda, la consultoría organizacional de liderazgo consciente y las técnicas de diseño de vida centradas en el propósito genuino.'
-    ]
+    ],
+    carlitosCallout: {
+      id: 'carlitos-cap4-3',
+      title: 'Glosario Térmico Analítico:',
+      variant: 'glossary',
+      text: 'Psicología Arquetipal: Corriente posjunguiana desarrollada por James Hillman que enfatiza la multiplicidad poética de las imágenes del alma ("soul-making") frente al impulso de síntesis unificadora del Yo.'
+    }
   },
 
   // ==========================================
@@ -550,11 +603,17 @@ export const EBOOK_PAGES: EbookPageData[] = [
       applicationExample: 'Caso Real: Carlos, ejecutivo de finanzas, descubrió que su máscara de "perfeccionista invulnerable" en la oficina le provocaba migrañas crónicas. Su acción de cierre fue delegar una tarea crítica semanal y admitir abiertamente ante su equipo cuando no tenía la respuesta inmediata a un problema.',
       closurePrompt: 'Registro Personal de Alineación de Máscaras:',
       inputFieldKey: 'workbook_persona_alignment',
-      inputPlaceholder: 'Escribe aquí tu análisis detallado sobre tus máscaras sociales actuales, los contextos donde más te agotas y la acción concreta que realizarás esta semana...'
+      inputPlaceholder: ''
     },
     paragraphs: [
       'La Persona es indispensable para la vida en sociedad; nos evita ir "en carne viva" por el mundo. El problema surge cuando nos identificamos tanto con la máscara que olvidamos la cara real que hay detrás. Este ejercicio te permitirá auditoriar tus máscaras.'
-    ]
+    ],
+    carlitosCallout: {
+      id: 'carlitos-cap5-1',
+      title: 'Nota Metodológica de Integración:',
+      variant: 'context_note',
+      text: 'Las máscaras sociales (Personas) no son intrínsecamente malas; nos resguardan del colapso social. La finalidad de esta auditoría es flexibilizar las máscaras rígidas para evitar que consuman toda tu energía psíquica.'
+    }
   },
   {
     pageNumber: 23,
@@ -592,11 +651,17 @@ export const EBOOK_PAGES: EbookPageData[] = [
       applicationExample: 'Caso Real: Elena sentía una irritación feroz hacia una colega que exponía sus ideas con pasión e improvisación en las reuniones. Al hacer el ejercicio, Elena comprendió que su envidia escondía su propia creatividad latente ("Sombra Dorada") que mantenía encerrada por temor al juicio ajeno.',
       closurePrompt: 'Registro Personal de tu Sombra Dorada:',
       inputFieldKey: 'workbook_golden_shadow',
-      inputPlaceholder: 'Escribe aquí la persona o cualidad que te irrita/envidias, el talento oculto detrás de la proyección y el paso concreto con el que reclamarás tu Sombra Dorada...'
+      inputPlaceholder: ''
     },
     paragraphs: [
       'No toda la Sombra es oscura ni destructiva. Con frecuencia reprimimos nuestros mejores talentos, nuestra capacidad de brillo o nuestro liderazgo por condicionamientos educacionales. La envidia es la brújula que indica dónde enterraste tu oro.'
-    ]
+    ],
+    carlitosCallout: {
+      id: 'carlitos-cap5-2',
+      title: 'Nota Metodológica de Integración:',
+      variant: 'context_note',
+      text: 'La Sombra Dorada comprende aquellas virtudes, talentos y destellos de liderazgo que reprimiste por temor al rechazo o a parecer arrogante. La envidia o fascinación es el indicador primario de ese potencial enterrado.'
+    }
   },
   {
     pageNumber: 24,
@@ -634,11 +699,17 @@ export const EBOOK_PAGES: EbookPageData[] = [
       applicationExample: 'Caso Real: Marcos entabló un diálogo de imaginación activa con un anciano severo que aparecía en sus pesadillas al tomar decisiones de carrera. El anciano le reveló que representaba su propio sentido de la disciplina que Marcos intentaba esquivar. Acordaron dedicar 30 minutos diarios de lectura enfocado.',
       closurePrompt: 'Transcripción de tu Diálogo de Imaginación Activa:',
       inputFieldKey: 'workbook_active_imagination',
-      inputPlaceholder: 'Escribe aquí la transcripción de tu diálogo de Imaginación Activa con el símbolo o figura seleccionada...'
+      inputPlaceholder: ''
     },
     paragraphs: [
       'La Imaginación Activa no es una simple fantasía pasiva. Es un diálogo consciente entre el Yo y las imágenes del inconsciente. Exige valentía, objetividad y respeto absoluto por la autonomía de las figuras psíquicas.'
-    ]
+    ],
+    carlitosCallout: {
+      id: 'carlitos-cap5-3',
+      title: 'Nota de Investigación de Archivo:',
+      variant: 'marginalia',
+      text: 'Jung advirtió que la Imaginación Activa requiere que el Yo participe con absoluta seriedad y juicio crítico. No se trata de una fantasía pasiva, sino de un diálogo de igual a igual con las figuras del inconsciente.'
+    }
   },
   {
     pageNumber: 25,
@@ -656,8 +727,9 @@ export const EBOOK_PAGES: EbookPageData[] = [
     ],
     carlitosCallout: {
       id: 'carlitos-cap5-4',
-      title: 'Carlitos te diría:',
-      text: 'No me des las gracias por haberte acompañado hasta aquí; dale las gracias a la parte de ti que decidió encender la lámpara en la oscuridad y abrir este libro. Ahora hazme un favor: cierra las páginas, apaga la pantalla y sal al mundo a vivir la tensión de tus opuestos con la frente en alto. Tu historia de individuación apenas acaba de comenzar.'
+      title: 'Cita Histórica de C. G. Jung:',
+      variant: 'historical_quote',
+      text: 'Tu visión se aclarará sólo cuando puedas mirar dentro de tu propio corazón. Quien mira hacia afuera, sueña; quien mira hacia adentro, despierta.'
     }
   }
 ];

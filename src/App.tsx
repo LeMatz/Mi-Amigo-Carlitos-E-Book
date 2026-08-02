@@ -154,7 +154,7 @@ export default function App() {
         </div>
       )}
 
-      {/* Main Document Content Area - Only Page Format */}
+      {/* Main Document Content Area - Only Clean Page Format */}
       <main className="flex-1 px-2 sm:px-4 py-4 max-w-7xl mx-auto w-full">
         
         {viewMode === 'cover' && (
@@ -174,95 +174,28 @@ export default function App() {
 
         {viewMode === 'reading' && (
           <div className="space-y-10 sm:space-y-16 py-2">
-            
-            {/* View Mode Banner / PDF Info & Navigation Bar */}
-            <div className="bg-[#120e0a] text-[#efe2c8] p-3 border-2 border-[#120e0a] flex flex-wrap items-center justify-between gap-3 font-mono text-xs no-print print:hidden shadow-lg">
-              
-              {/* Document Section Tabs */}
-              <div className="flex flex-wrap items-center gap-1.5">
-                <span className="bg-[#efe2c8] text-[#120e0a] font-bold px-2 py-1 uppercase mr-1">
-                  Secciones:
-                </span>
-
-                <button
-                  onClick={() => setViewMode('cover')}
-                  className="px-2.5 py-1 bg-[#382618] text-[#efe2c8] hover:bg-[#5d4025] border border-[#efe2c8]/30 font-bold transition-all cursor-pointer"
-                >
-                  Portada
-                </button>
-
-                <button
-                  onClick={() => setViewMode('index')}
-                  className="px-2.5 py-1 bg-[#382618] text-[#efe2c8] hover:bg-[#5d4025] border border-[#efe2c8]/30 font-bold transition-all cursor-pointer"
-                >
-                  Índice
-                </button>
-
-                <button
-                  onClick={() => setViewMode('reading')}
-                  className="px-2.5 py-1 bg-[#efe2c8] text-[#120e0a] font-bold border border-[#120e0a] transition-all cursor-pointer"
-                >
-                  Páginas (1-25)
-                </button>
-
-                <button
-                  onClick={() => setViewMode('backcover')}
-                  className="px-2.5 py-1 bg-[#382618] text-[#efe2c8] hover:bg-[#5d4025] border border-[#efe2c8]/30 font-bold transition-all cursor-pointer"
-                >
-                  Contraportada
-                </button>
-              </div>
-
-              {/* PDF & Layout Controls */}
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setDisplayAllPages(!displayAllPages)}
-                  className="px-3 py-1 bg-[#efe2c8] text-[#120e0a] font-playfair font-bold uppercase hover:bg-[#d8c29b] transition-all cursor-pointer flex items-center gap-1.5"
-                >
-                  <Layers className="w-3.5 h-3.5" />
-                  <span>{displayAllPages ? 'Ver Solo Página Actual' : 'Ver Documento Completo (Portada + 25 Págs + Contraportada)'}</span>
-                </button>
-
-                <button
-                  onClick={handleExportPdf}
-                  className="px-3 py-1 bg-[#5d4025] text-[#efe2c8] font-playfair font-bold uppercase hover:bg-[#4a2e19] transition-all cursor-pointer flex items-center gap-1.5 border border-[#efe2c8]/30"
-                >
-                  <Printer className="w-3.5 h-3.5 text-amber-300" />
-                  <span>Exportar PDF / Imprimir</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Separated Pages rendering */}
             {displayAllPages ? (
               <>
                 {/* 1. PORTADA / COVER SHEET */}
                 <div id="page-cover" className="relative">
-                  <div className="text-center font-mono text-[11px] text-[#5d4025] mb-4 uppercase tracking-widest no-print print:hidden flex items-center justify-center gap-3">
-                    <span className="h-[1px] bg-[#5d4025]/40 flex-1 max-w-xs"></span>
-                    <span className="bg-[#e8d7b5] border border-[#120e0a]/30 px-3 py-1 font-bold">
-                      ── Pliego 1: Portada Principal ──
-                    </span>
-                    <span className="h-[1px] bg-[#5d4025]/40 flex-1 max-w-xs"></span>
-                  </div>
-
                   <EbookCover
                     onStartReading={() => handlePageChange(1)}
                     onOpenIndex={() => setViewMode('index')}
                   />
                 </div>
 
-                {/* 2. THE 25 BOOK PAGES */}
+                {/* 2. ÍNDICE DE CONTENIDOS / TABLE OF CONTENTS SHEET */}
+                <div id="page-toc" className="relative">
+                  <EbookTableOfContents
+                    currentPageNumber={currentPageNumber}
+                    onSelectPage={handlePageChange}
+                    completedPages={readPages}
+                  />
+                </div>
+
+                {/* 3. THE 25 BOOK PAGES */}
                 {EBOOK_PAGES.map((page) => (
                   <div key={page.pageNumber} id={`page-${page.pageNumber}`} className="relative">
-                    <div className="text-center font-mono text-[11px] text-[#5d4025] my-6 uppercase tracking-widest no-print print:hidden flex items-center justify-center gap-3">
-                      <span className="h-[1px] bg-[#5d4025]/40 flex-1 max-w-xs"></span>
-                      <span className="bg-[#e8d7b5] border border-[#120e0a]/30 px-3 py-1 font-bold">
-                        ─ Pliego Página {page.pageNumber} de 25 ─
-                      </span>
-                      <span className="h-[1px] bg-[#5d4025]/40 flex-1 max-w-xs"></span>
-                    </div>
-
                     <EbookPage
                       pageData={page}
                       fontSize={fontSize}
@@ -278,14 +211,6 @@ export default function App() {
 
                 {/* 3. CONTRAPORTADA / BACK COVER SHEET */}
                 <div id="page-backcover" className="relative">
-                  <div className="text-center font-mono text-[11px] text-[#5d4025] my-6 uppercase tracking-widest no-print print:hidden flex items-center justify-center gap-3">
-                    <span className="h-[1px] bg-[#5d4025]/40 flex-1 max-w-xs"></span>
-                    <span className="bg-[#e8d7b5] border border-[#120e0a]/30 px-3 py-1 font-bold">
-                      ── Pliego Final: Contraportada ──
-                    </span>
-                    <span className="h-[1px] bg-[#5d4025]/40 flex-1 max-w-xs"></span>
-                  </div>
-
                   <EbookBackCover
                     onReturnToCover={() => {
                       setViewMode('cover');
@@ -320,58 +245,6 @@ export default function App() {
         )}
 
       </main>
-
-      {/* Floating Minimal Quick Controls Bar (Hidden during PDF print) */}
-      <div className="fixed bottom-4 right-4 z-40 flex items-center gap-2 no-print print:hidden">
-        <button
-          onClick={handleExportPdf}
-          className="p-3 bg-[#120e0a] text-[#efe2c8] border-2 border-[#efe2c8] shadow-2xl hover:bg-[#382618] transition-all cursor-pointer flex items-center gap-2 font-playfair text-xs uppercase font-bold"
-          title="Exportar a PDF / Imprimir"
-        >
-          <Printer className="w-4 h-4 text-amber-400" />
-          <span className="hidden sm:inline">Exportar PDF</span>
-        </button>
-
-        <button
-          onClick={() => setViewMode('index')}
-          className="p-3 bg-[#d8c29b] text-[#120e0a] border-2 border-[#120e0a] shadow-xl hover:bg-[#c9b28a] transition-all cursor-pointer"
-          title="Índice de Contenidos"
-        >
-          <List className="w-4 h-4" />
-        </button>
-
-        <button
-          onClick={() => setIsSearchOpen(true)}
-          className="p-3 bg-[#d8c29b] text-[#120e0a] border-2 border-[#120e0a] shadow-xl hover:bg-[#c9b28a] transition-all cursor-pointer"
-          title="Buscar término"
-        >
-          <Search className="w-4 h-4" />
-        </button>
-
-        <button
-          onClick={() => setIsWorkbookOpen(true)}
-          className="p-3 bg-[#d8c29b] text-[#120e0a] border-2 border-[#120e0a] shadow-xl hover:bg-[#c9b28a] transition-all cursor-pointer"
-          title="Cuaderno de Ejercicios"
-        >
-          <Edit3 className="w-4 h-4" />
-        </button>
-
-        <button
-          onClick={() => setIsCarlitosAiOpen(true)}
-          className="p-3 bg-[#5d4025] text-[#efe2c8] border-2 border-[#120e0a] shadow-xl hover:bg-[#4a2e19] transition-all cursor-pointer"
-          title="Consultar a Carlitos (AI)"
-        >
-          <Sparkles className="w-4 h-4 text-amber-300" />
-        </button>
-
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="p-3 bg-[#120e0a] text-[#efe2c8] border-2 border-[#120e0a] shadow-xl hover:bg-[#382618] transition-all cursor-pointer"
-          title="Ir arriba"
-        >
-          <ArrowUp className="w-4 h-4" />
-        </button>
-      </div>
 
       {/* MODALS */}
       <EbookSearchModal
