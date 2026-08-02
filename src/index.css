@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+html {
+  font-size: 118.75%;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 112.5%;
+  }
+}
+
+@layer utilities {
+  .font-playfair {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', Garamond, serif;
+  }
+  .font-baskerville {
+    font-family: 'Libre Baskerville', Georgia, serif;
+  }
+  .font-im-fell {
+    font-family: 'IM Fell English', Georgia, serif;
+  }
+  .font-bodoni {
+    font-family: 'Bodoni Moda', Georgia, serif;
+  }
+  .font-old-standard {
+    font-family: 'Old Standard TT', Georgia, serif;
+  }
+  .font-signature {
+    font-family: 'Pinyon Script', cursive;
+  }
+  .font-blackletter {
+    font-family: 'UnifrakturMaguntia', serif;
+  }
+  .font-western {
+    font-family: 'Rye', 'Sancreek', Georgia, serif;
+  }
+}
+
+/* Aged Sepia & Crumpled Antique Newspaper Background Texture */
+.newspaper-bg {
+  background-color: #dfceaa;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(139, 94, 52, 0.08) 0%, transparent 80%),
+    radial-gradient(circle at 10% 20%, rgba(68, 42, 23, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(68, 42, 23, 0.12) 0%, transparent 40%),
+    radial-gradient(#2b1d12 0.45px, transparent 0.45px),
+    radial-gradient(#4a2e19 0.35px, #dfceaa 0.35px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 14px 14px, 14px 14px;
+  background-position: center, center, center, 0 0, 7px 7px;
+  background-blend-mode: multiply, multiply, multiply, normal, normal;
+  box-shadow: inset 0 0 100px rgba(43, 29, 18, 0.25);
+}
+
+/* Crumpled Paper Card Texture */
+.paper-card {
+  background-color: #d8c29b;
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.06) 100%);
+  box-shadow: inset 0 0 18px rgba(74, 46, 25, 0.18), 0 4px 10px rgba(18, 14, 10, 0.15);
+  border: 1px solid #120e0a;
+}
+
+.paper-card-light {
+  background-color: #e8d7b5;
+  box-shadow: inset 0 0 12px rgba(74, 46, 25, 0.1);
+}
+
+.paper-dark {
+  background-color: #1a120b;
+  color: #e8d7b5;
+}
+
+/* Authentic Newspaper Borders & Lines */
+.border-double-vintage {
+  border-style: double;
+  border-width: 4px;
+  border-color: #120e0a;
+}
+
+.border-thin-vintage {
+  border-width: 1px;
+  border-color: #120e0a;
+}
+
+.border-[#111111] {
+  border-color: #120e0a !important;
+}
+
+/* Newspaper Column Divider Rule */
+.column-rule {
+  border-right: 1px solid rgba(18, 14, 10, 0.3);
+}
+
+/* Drop Caps (Capitulares de Periódico) */
+.drop-cap::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.8;
+  padding-top: 4px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  font-weight: 900;
+  color: #120e0a;
+}
+
+/* Sepia Photo Treatment matching 20th century print */
+.sepia-vintage {
+  filter: sepia(0.85) contrast(1.25) brightness(0.85) grayscale(0.12);
+  transition: filter 0.4s ease;
+}
+
+.sepia-vintage:hover {
+  filter: sepia(0.7) contrast(1.18) brightness(0.9);
+}
+
+/* Ink Printing Shadow */
+.ink-text {
+  text-shadow: 0.5px 0.5px 0px rgba(18, 14, 10, 0.4);
+}
+
+/* Mobile-specific Newspaper Formatting */
+@media (max-width: 640px) {
+  .drop-cap::first-letter {
+    font-size: 2.8rem;
+    padding-right: 6px;
+  }
+}
+
+/* Custom Aged Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #d8c29b;
+}
+::-webkit-scrollbar-thumb {
+  background: #4a2e19;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #120e0a;
+}
+
+/* PDF & Print Styles */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+  }
+
+  .newspaper-bg {
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  .paper-card, .paper-card-light {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: 1px solid #120e0a !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    page-break-after: always;
+    break-after: page;
+    margin-bottom: 0 !important;
+    padding: 1.5rem !important;
+  }
+
+  .print-page-sheet {
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .no-print, .print\:hidden {
+    display: none !important;
+  }
+}
+
+
