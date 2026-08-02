@@ -261,12 +261,13 @@ export const EbookPage: React.FC<EbookPageProps> = ({
               </p>
             </div>
 
-            {/* Interactive Workbook Textarea Field */}
+            {/* Interactive Workbook Textarea Field & PDF Static Output */}
             <div className="pt-4 border-t border-[#120e0a]/40 space-y-3">
               <label className="block font-playfair font-bold text-sm sm:text-base text-[#120e0a]">
                 {pageData.exerciseData.closurePrompt}
               </label>
               
+              {/* Screen Mode: Interactive Textarea */}
               <textarea
                 value={userWorkbookState[pageData.exerciseData.inputFieldKey] || ''}
                 onChange={(e) => {
@@ -276,10 +277,30 @@ export const EbookPage: React.FC<EbookPageProps> = ({
                 }}
                 placeholder={pageData.exerciseData.inputPlaceholder}
                 rows={5}
-                className="w-full p-4 bg-[#efe2c8] border-2 border-[#120e0a] font-old-standard text-xs sm:text-sm text-[#120e0a] focus:outline-none focus:ring-2 focus:ring-[#5d4025] shadow-inner leading-relaxed resize-y placeholder:text-[#120e0a]/40"
+                className="w-full p-4 bg-[#efe2c8] border-2 border-[#120e0a] font-old-standard text-xs sm:text-sm text-[#120e0a] focus:outline-none focus:ring-2 focus:ring-[#5d4025] shadow-inner leading-relaxed resize-y placeholder:text-[#120e0a]/40 print:hidden"
               />
 
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] font-mono text-[#5d4025]">
+              {/* Print / PDF Mode: Static Document Text Block */}
+              {userWorkbookState[pageData.exerciseData.inputFieldKey] ? (
+                <div className="hidden print:block p-4 bg-[#efe2c8] border-2 border-[#120e0a] font-old-standard text-xs sm:text-sm text-[#120e0a] leading-relaxed whitespace-pre-wrap">
+                  <span className="font-mono text-[10px] uppercase text-[#5d4025] font-bold block mb-1">
+                    • Registro Personal del Lector:
+                  </span>
+                  {userWorkbookState[pageData.exerciseData.inputFieldKey]}
+                </div>
+              ) : (
+                <div className="hidden print:block p-4 bg-[#efe2c8] border-2 border-[#120e0a] font-mono text-xs text-[#5d4025] space-y-3">
+                  <p className="font-bold uppercase text-[10px] tracking-wider">
+                    • Espacio Reservado para Anotaciones y Respuestas Reflexivas:
+                  </p>
+                  <div className="border-b border-[#120e0a]/30 h-5" />
+                  <div className="border-b border-[#120e0a]/30 h-5" />
+                  <div className="border-b border-[#120e0a]/30 h-5" />
+                  <div className="border-b border-[#120e0a]/30 h-5" />
+                </div>
+              )}
+
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] font-mono text-[#5d4025] print:hidden">
                 <span>✓ Respuestas guardadas automáticamente en tu sesión</span>
                 {userWorkbookState[pageData.exerciseData.inputFieldKey] ? (
                   <span className="text-emerald-800 font-bold flex items-center gap-1">

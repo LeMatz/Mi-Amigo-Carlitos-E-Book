@@ -10,7 +10,7 @@ interface EbookCoverProps {
 
 export const EbookCover: React.FC<EbookCoverProps> = ({ onStartReading, onOpenIndex }) => {
   return (
-    <div className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-8 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl relative overflow-hidden transition-all duration-300">
+    <div className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-8 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl relative overflow-hidden transition-all duration-300 print-page-sheet">
       
       {/* Outer Decorative Vintage Frame */}
       <div className="border-4 border-double border-[#120e0a] p-4 sm:p-8 relative bg-[#e3d2b0]/50">
@@ -74,7 +74,7 @@ export const EbookCover: React.FC<EbookCoverProps> = ({ onStartReading, onOpenIn
         <OrnamentalDivider variant="stars" className="my-4" />
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 print:hidden">
           <button
             onClick={onStartReading}
             className="w-full sm:w-auto px-8 py-3.5 bg-[#1a120b] hover:bg-[#382618] text-[#efe2c8] font-playfair font-bold text-sm tracking-wider uppercase border border-[#efe2c8]/30 shadow-lg flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"

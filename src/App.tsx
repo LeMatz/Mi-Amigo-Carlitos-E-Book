@@ -147,9 +147,11 @@ export default function App() {
   return (
     <div className="min-h-screen newspaper-bg text-[#111111] font-old-standard flex flex-col justify-between selection:bg-[#5d4025] selection:text-[#efe2c8] overflow-x-hidden">
       
-      {/* Newspaper Masthead Header (shown on cover mode only) */}
+      {/* Newspaper Masthead Header (shown on cover mode only for web viewing) */}
       {viewMode === 'cover' && (
-        <NewspaperHeader onOpenRegisterModal={() => setViewMode('index')} />
+        <div className="no-print print:hidden">
+          <NewspaperHeader onOpenRegisterModal={() => setViewMode('index')} />
+        </div>
       )}
 
       {/* Main Document Content Area - Only Page Format */}
@@ -173,31 +175,59 @@ export default function App() {
         {viewMode === 'reading' && (
           <div className="space-y-10 sm:space-y-16 py-2">
             
-            {/* View Mode Banner / PDF Info */}
+            {/* View Mode Banner / PDF Info & Navigation Bar */}
             <div className="bg-[#120e0a] text-[#efe2c8] p-3 border-2 border-[#120e0a] flex flex-wrap items-center justify-between gap-3 font-mono text-xs no-print print:hidden shadow-lg">
-              <div className="flex items-center gap-2">
-                <span className="bg-[#efe2c8] text-[#120e0a] font-bold px-2 py-0.5 uppercase">
-                  Formato Documento PDF
+              
+              {/* Document Section Tabs */}
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="bg-[#efe2c8] text-[#120e0a] font-bold px-2 py-1 uppercase mr-1">
+                  Secciones:
                 </span>
-                <span className="hidden sm:inline">
-                  {displayAllPages ? 'Mostrando las 25 páginas separadas en pliegos' : `Mostrando Página ${currentPageNumber} de 25`}
-                </span>
+
+                <button
+                  onClick={() => setViewMode('cover')}
+                  className="px-2.5 py-1 bg-[#382618] text-[#efe2c8] hover:bg-[#5d4025] border border-[#efe2c8]/30 font-bold transition-all cursor-pointer"
+                >
+                  Portada
+                </button>
+
+                <button
+                  onClick={() => setViewMode('index')}
+                  className="px-2.5 py-1 bg-[#382618] text-[#efe2c8] hover:bg-[#5d4025] border border-[#efe2c8]/30 font-bold transition-all cursor-pointer"
+                >
+                  Índice
+                </button>
+
+                <button
+                  onClick={() => setViewMode('reading')}
+                  className="px-2.5 py-1 bg-[#efe2c8] text-[#120e0a] font-bold border border-[#120e0a] transition-all cursor-pointer"
+                >
+                  Páginas (1-25)
+                </button>
+
+                <button
+                  onClick={() => setViewMode('backcover')}
+                  className="px-2.5 py-1 bg-[#382618] text-[#efe2c8] hover:bg-[#5d4025] border border-[#efe2c8]/30 font-bold transition-all cursor-pointer"
+                >
+                  Contraportada
+                </button>
               </div>
 
+              {/* PDF & Layout Controls */}
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setDisplayAllPages(!displayAllPages)}
                   className="px-3 py-1 bg-[#efe2c8] text-[#120e0a] font-playfair font-bold uppercase hover:bg-[#d8c29b] transition-all cursor-pointer flex items-center gap-1.5"
                 >
                   <Layers className="w-3.5 h-3.5" />
-                  <span>{displayAllPages ? 'Ver Página Individual' : 'Ver Todas las 25 Páginas'}</span>
+                  <span>{displayAllPages ? 'Ver Solo Página Actual' : 'Ver Documento Completo (Portada + 25 Págs + Contraportada)'}</span>
                 </button>
 
                 <button
                   onClick={handleExportPdf}
                   className="px-3 py-1 bg-[#5d4025] text-[#efe2c8] font-playfair font-bold uppercase hover:bg-[#4a2e19] transition-all cursor-pointer flex items-center gap-1.5 border border-[#efe2c8]/30"
                 >
-                  <Printer className="w-3.5 h-3.5" />
+                  <Printer className="w-3.5 h-3.5 text-amber-300" />
                   <span>Exportar PDF / Imprimir</span>
                 </button>
               </div>
@@ -205,31 +235,67 @@ export default function App() {
 
             {/* Separated Pages rendering */}
             {displayAllPages ? (
-              EBOOK_PAGES.map((page) => (
-                <div key={page.pageNumber} id={`page-${page.pageNumber}`} className="relative">
-                  {/* Page Break Visual Separator Bar (hidden in PDF output) */}
-                  {page.pageNumber > 1 && (
+              <>
+                {/* 1. PORTADA / COVER SHEET */}
+                <div id="page-cover" className="relative">
+                  <div className="text-center font-mono text-[11px] text-[#5d4025] mb-4 uppercase tracking-widest no-print print:hidden flex items-center justify-center gap-3">
+                    <span className="h-[1px] bg-[#5d4025]/40 flex-1 max-w-xs"></span>
+                    <span className="bg-[#e8d7b5] border border-[#120e0a]/30 px-3 py-1 font-bold">
+                      ── Pliego 1: Portada Principal ──
+                    </span>
+                    <span className="h-[1px] bg-[#5d4025]/40 flex-1 max-w-xs"></span>
+                  </div>
+
+                  <EbookCover
+                    onStartReading={() => handlePageChange(1)}
+                    onOpenIndex={() => setViewMode('index')}
+                  />
+                </div>
+
+                {/* 2. THE 25 BOOK PAGES */}
+                {EBOOK_PAGES.map((page) => (
+                  <div key={page.pageNumber} id={`page-${page.pageNumber}`} className="relative">
                     <div className="text-center font-mono text-[11px] text-[#5d4025] my-6 uppercase tracking-widest no-print print:hidden flex items-center justify-center gap-3">
                       <span className="h-[1px] bg-[#5d4025]/40 flex-1 max-w-xs"></span>
                       <span className="bg-[#e8d7b5] border border-[#120e0a]/30 px-3 py-1 font-bold">
-                        ─ Separador de Pliego • Página {page.pageNumber} de 25 ─
+                        ─ Pliego Página {page.pageNumber} de 25 ─
                       </span>
                       <span className="h-[1px] bg-[#5d4025]/40 flex-1 max-w-xs"></span>
                     </div>
-                  )}
 
-                  <EbookPage
-                    pageData={page}
-                    fontSize={fontSize}
-                    fontFamily={fontFamily}
-                    userWorkbookState={userWorkbookState}
-                    onSaveWorkbookEntry={handleSaveWorkbookEntry}
-                    onNavigatePage={handlePageChange}
-                    isBookmarked={bookmarks.includes(page.pageNumber)}
-                    onToggleBookmark={() => handleToggleBookmark(page.pageNumber)}
+                    <EbookPage
+                      pageData={page}
+                      fontSize={fontSize}
+                      fontFamily={fontFamily}
+                      userWorkbookState={userWorkbookState}
+                      onSaveWorkbookEntry={handleSaveWorkbookEntry}
+                      onNavigatePage={handlePageChange}
+                      isBookmarked={bookmarks.includes(page.pageNumber)}
+                      onToggleBookmark={() => handleToggleBookmark(page.pageNumber)}
+                    />
+                  </div>
+                ))}
+
+                {/* 3. CONTRAPORTADA / BACK COVER SHEET */}
+                <div id="page-backcover" className="relative">
+                  <div className="text-center font-mono text-[11px] text-[#5d4025] my-6 uppercase tracking-widest no-print print:hidden flex items-center justify-center gap-3">
+                    <span className="h-[1px] bg-[#5d4025]/40 flex-1 max-w-xs"></span>
+                    <span className="bg-[#e8d7b5] border border-[#120e0a]/30 px-3 py-1 font-bold">
+                      ── Pliego Final: Contraportada ──
+                    </span>
+                    <span className="h-[1px] bg-[#5d4025]/40 flex-1 max-w-xs"></span>
+                  </div>
+
+                  <EbookBackCover
+                    onReturnToCover={() => {
+                      setViewMode('cover');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    onOpenIndex={() => setViewMode('index')}
+                    onOpenWorkbookManager={() => setIsWorkbookOpen(true)}
                   />
                 </div>
-              ))
+              </>
             ) : (
               <EbookPage
                 pageData={currentPageData}

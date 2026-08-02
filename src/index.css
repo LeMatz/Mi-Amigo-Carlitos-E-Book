@@ -184,8 +184,12 @@ html {
     break-inside: avoid !important;
   }
 
-  .no-print, .print\:hidden {
+  .no-print, .print\:hidden, button, input {
     display: none !important;
+  }
+
+  .print\:block {
+    display: block !important;
   }
 }
 

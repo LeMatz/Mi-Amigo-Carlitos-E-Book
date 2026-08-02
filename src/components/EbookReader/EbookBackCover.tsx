@@ -15,7 +15,7 @@ export const EbookBackCover: React.FC<EbookBackCoverProps> = ({
   onOpenWorkbookManager,
 }) => {
   return (
-    <div className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-8 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl bg-[#dfceaa]">
+    <div className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-8 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl bg-[#dfceaa] print-page-sheet">
       <div className="border-4 border-double border-[#120e0a] p-4 sm:p-8 relative bg-[#e3d2b0]/60 text-center space-y-6">
         
         {/* Header Badge */}
@@ -83,7 +83,7 @@ export const EbookBackCover: React.FC<EbookBackCoverProps> = ({
         <OrnamentalDivider variant="double" className="my-4" />
 
         {/* Action Controls */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 print:hidden">
           <button
             onClick={onReturnToCover}
             className="w-full sm:w-auto px-6 py-3 bg-[#120e0a] text-[#efe2c8] font-playfair font-bold text-xs uppercase hover:bg-[#382618] transition-all flex items-center justify-center gap-2 cursor-pointer"
