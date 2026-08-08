@@ -2,14 +2,15 @@ export interface CarlitosCallout {
   id: string;
   title?: string;
   text: string;
-  variant?: 'carlitos' | 'historical_quote' | 'marginalia' | 'glossary' | 'alchemical' | 'context_note';
+  variant?: 'carlitos' | 'historical_quote' | 'marginalia' | 'glossary' | 'alchemical' | 'context_note' | 'left_callout';
+  position?: 'left' | 'right' | 'full';
 }
 
 export interface ArchetypeTableRow {
   archetype: string;
   symbols: string;
   distortion: string;
-  origin: 'Jung explícito' | 'Tradición junguiana / Ampliado';
+  origin?: 'Jung explícito' | 'Tradición junguiana / Ampliado';
 }
 
 export interface ExerciseStep {
@@ -24,9 +25,10 @@ export interface ExerciseData {
   objective: string;
   steps: ExerciseStep[];
   applicationExample: string;
-  closurePrompt: string;
-  inputFieldKey: string;
-  inputPlaceholder: string;
+  exampleLabel?: string;
+  closurePrompt?: string;
+  inputFieldKey?: string;
+  inputPlaceholder?: string;
 }
 
 export type PageContentType = 
@@ -39,7 +41,7 @@ export type PageContentType =
   | 'conclusion';
 
 export interface EbookPageData {
-  pageNumber: number; // 1 to 25
+  pageNumber: number; // 1 to 26
   chapterId: number; // 0 for Intro/Bio, 1, 2, 3, 4, 5
   sectionTitle: string;
   pageTitle: string;
@@ -47,6 +49,7 @@ export interface EbookPageData {
   contentType: PageContentType;
   paragraphs: string[];
   carlitosCallout?: CarlitosCallout;
+  secondaryCallout?: CarlitosCallout;
   tableData?: ArchetypeTableRow[];
   exerciseData?: ExerciseData;
   keyTerms?: string[];

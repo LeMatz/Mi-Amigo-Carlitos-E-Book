@@ -23,7 +23,7 @@ export const EbookTableOfContents: React.FC<EbookTableOfContentsProps> = () => {
           Índice de Contenidos
         </h2>
         <p className="font-cormorant italic text-sm sm:text-base text-[#2b1d12]">
-          25 Páginas de Contenido Riguroso + Cuaderno de Ejercicios
+          {EBOOK_PAGES.length} Páginas de Contenido + Cuaderno de Ejercicios
         </p>
         <OrnamentalDivider variant="flourish" className="my-2" />
       </div>
@@ -95,7 +95,7 @@ export const EbookTableOfContents: React.FC<EbookTableOfContentsProps> = () => {
 
       {/* Footer Meta Info */}
       <div className="pt-2 border-t border-[#120e0a]/30 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] font-mono text-[#5d4025]">
-        <span>EDICIÓN 2026 • REGISTRO DE PÁGINAS (1 A 25)</span>
+        <span>EDICIÓN 2026 • REGISTRO DE PÁGINAS (1 A {EBOOK_PAGES.length})</span>
         <span>TEXTO INTEGRAL Y GUÍA DE AUTOEXPLORACIÓN</span>
       </div>
 

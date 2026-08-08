@@ -84,7 +84,7 @@ export default function App() {
 
       if (viewMode === 'reading' && !displayAllPages) {
         if (e.key === 'ArrowRight' || e.key === 'PageDown') {
-          if (currentPageNumber < 25) {
+          if (currentPageNumber < EBOOK_PAGES.length) {
             setCurrentPageNumber((prev) => prev + 1);
             window.scrollTo({ top: 0, behavior: 'smooth' });
           } else {
@@ -106,7 +106,7 @@ export default function App() {
   }, [viewMode, currentPageNumber, displayAllPages]);
 
   const handlePageChange = (newPageNumber: number) => {
-    if (newPageNumber >= 1 && newPageNumber <= 25) {
+    if (newPageNumber >= 1 && newPageNumber <= EBOOK_PAGES.length) {
       setCurrentPageNumber(newPageNumber);
       setViewMode('reading');
       
@@ -193,7 +193,7 @@ export default function App() {
                   />
                 </div>
 
-                {/* 3. THE 25 BOOK PAGES */}
+                {/* 3. THE 26 BOOK PAGES */}
                 {EBOOK_PAGES.map((page) => (
                   <div key={page.pageNumber} id={`page-${page.pageNumber}`} className="relative">
                     <EbookPage

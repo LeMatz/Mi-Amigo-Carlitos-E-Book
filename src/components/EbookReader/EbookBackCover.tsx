@@ -76,8 +76,18 @@ export const EbookBackCover: React.FC<EbookBackCoverProps> = ({
           </div>
         </div>
 
-        <div className="flex justify-center my-4">
-          <WaxSealBadge text="PSIQUE INTEGRADA" className="w-24 h-24" />
+        <div className="flex justify-center my-3">
+          <WaxSealBadge text="PSIQUE INTEGRADA" className="w-20 h-20 sm:w-24 sm:h-24" />
+        </div>
+
+        {/* CONTINUARÁ Banner */}
+        <div className="my-4 py-4 px-6 bg-[#120e0a] text-[#efe2c8] border-2 border-[#5d4025] shadow-xl max-w-xl mx-auto rounded-xs text-center space-y-1 relative">
+          <span className="font-playfair text-2xl sm:text-4xl font-black uppercase tracking-[0.25em] block text-[#e3ceaa] drop-shadow-md">
+            — CONTINUARÁ —
+          </span>
+          <p className="font-cormorant italic text-sm sm:text-base text-[#d8c29b] font-medium">
+            El viaje del autoconocimiento y la integración psíquica recién comienza...
+          </p>
         </div>
 
         <OrnamentalDivider variant="double" className="my-4" />

@@ -25,7 +25,7 @@ export const EbookCover: React.FC<EbookCoverProps> = ({ onStartReading, onOpenIn
         <div>
           <div className="text-center space-y-1 mb-4">
             <div className="text-xs tracking-[0.3em] font-playfair uppercase text-[#4a2e19] font-bold">
-              Colección de Psicología Analítica • Edición de Archivo
+              Colección de Mitología Personal • Edición de Archivo
             </div>
             <div className="text-[10px] tracking-widest font-mono text-[#5d4025]">
               DOCUMENTO INSTRUCCIONAL & GUÍA DE AUTOCONOCIMIENTO
@@ -59,25 +59,24 @@ export const EbookCover: React.FC<EbookCoverProps> = ({ onStartReading, onOpenIn
 
           <OrnamentalDivider variant="fleuron" className="my-2 max-w-md" />
 
-          {/* Reserved Space for Photograph Frame */}
-          <div className="w-full max-w-md my-4 p-6 sm:p-8 border-2 border-dashed border-[#120e0a]/60 bg-[#eedebf]/80 flex flex-col items-center justify-center text-center space-y-3 rounded-xs relative shadow-inner min-h-[220px]">
+          {/* Cover Image Frame */}
+          <div className="w-full max-w-md my-4 p-2.5 sm:p-3 border-2 border-[#120e0a] bg-[#eedebf] flex flex-col items-center justify-center text-center rounded-xs relative shadow-lg">
             {/* Vintage Frame Corner Accents */}
-            <div className="absolute top-2 left-2 text-[#5d4025] font-serif text-xs">┌</div>
-            <div className="absolute top-2 right-2 text-[#5d4025] font-serif text-xs">┐</div>
-            <div className="absolute bottom-2 left-2 text-[#5d4025] font-serif text-xs">└</div>
-            <div className="absolute bottom-2 right-2 text-[#5d4025] font-serif text-xs">┘</div>
+            <div className="absolute top-1 left-1 text-[#5d4025] font-serif text-xs z-10">┌</div>
+            <div className="absolute top-1 right-1 text-[#5d4025] font-serif text-xs z-10">┐</div>
+            <div className="absolute bottom-1 left-1 text-[#5d4025] font-serif text-xs z-10">└</div>
+            <div className="absolute bottom-1 right-1 text-[#5d4025] font-serif text-xs z-10">┘</div>
             
-            <div className="p-3 bg-[#e2d0ab] border border-[#120e0a]/40 rounded-full text-[#4a2e19] shadow-sm">
-              <Camera className="w-7 h-7 sm:w-9 sm:h-9" />
-            </div>
-            
-            <div className="space-y-1">
-              <span className="font-playfair font-bold text-xs sm:text-sm text-[#120e0a] uppercase tracking-wider block">
-                [ Espacio Reservado para Fotografía ]
-              </span>
-              <p className="font-cormorant italic text-xs sm:text-sm text-[#4a2e19]">
-                Retrato de C. G. Jung, fotografía de archivo o imagen del estudio
-              </p>
+            <div className="relative w-full overflow-hidden border border-[#120e0a]/40 bg-[#120e0a]/5 rounded-xs">
+              <img
+                src="https://lh3.googleusercontent.com/d/1vfTgOaB7WazEhElIbXm7-nTrIAKLtINj"
+                alt="Portada Mi amigo Carlitos"
+                className="w-full h-auto max-h-[420px] object-contain mx-auto shadow-sm rounded-xs"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = "https://drive.google.com/uc?export=view&id=1vfTgOaB7WazEhElIbXm7-nTrIAKLtINj";
+                }}
+              />
             </div>
           </div>
 
@@ -88,7 +87,7 @@ export const EbookCover: React.FC<EbookCoverProps> = ({ onStartReading, onOpenIn
 
           {/* Footer Meta info */}
           <div className="pt-3 border-t border-[#120e0a]/30 flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono text-[#5d4025] gap-2">
-            <span>EDICIÓN 2026 • REGISTRO PSICOLÓGICO INSTRUCCIONAL</span>
+            <span>EDICIÓN 2026 • REGISTRO INSTRUCCIONAL</span>
             <span>TEXTO INTEGRAL AUTOCONTENIDO</span>
           </div>
         </div>

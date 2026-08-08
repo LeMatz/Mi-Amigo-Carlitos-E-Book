@@ -47,7 +47,7 @@ export const EbookSearchModal: React.FC<EbookSearchModalProps> = ({
         <div className="flex items-center justify-between pb-3 border-b border-[#120e0a]/30">
           <div className="flex items-center gap-2 font-playfair font-black text-lg sm:text-xl text-[#120e0a] uppercase">
             <Search className="w-5 h-5 text-[#5d4025]" />
-            <span>Búsqueda en las 25 Páginas del E-book</span>
+            <span>Búsqueda en las {EBOOK_PAGES.length} Páginas del E-book</span>
           </div>
 
           <button
