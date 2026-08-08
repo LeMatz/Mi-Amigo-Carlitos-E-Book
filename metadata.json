@@ -1,8 +1,0 @@
-{
-  "name": "Mi amigo Carlitos - E-book",
-  "description": "Edición especial en formato periódico antiguo para el curso de Carl Jung aplicado al coaching y autoconocimiento.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
