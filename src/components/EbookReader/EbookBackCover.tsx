@@ -2,20 +2,25 @@ import React from 'react';
 import { OrnamentalDivider } from '../OrnamentalDivider';
 import { WaxSealBadge, GreekGoddessIcon } from '../VintageSvgIcons';
 import { BookOpen, RotateCcw, Award, CheckCircle } from 'lucide-react';
+import { getPageSizeClass } from '../../config/ebookConfig';
 
 interface EbookBackCoverProps {
   onReturnToCover: () => void;
   onOpenIndex: () => void;
   onOpenWorkbookManager: () => void;
+  pageSize?: string;
 }
 
 export const EbookBackCover: React.FC<EbookBackCoverProps> = ({
   onReturnToCover,
   onOpenIndex,
   onOpenWorkbookManager,
+  pageSize,
 }) => {
+  const pageSizeClass = pageSize || getPageSizeClass('page-backcover');
+
   return (
-    <div className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-8 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl bg-[#dfceaa] print-page-sheet min-h-[1100px] sm:min-h-[1250px] flex flex-col justify-between">
+    <div className={`w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-8 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl bg-[#dfceaa] print-page-sheet flex flex-col justify-between ${pageSizeClass}`}>
       <div className="border-4 border-double border-[#120e0a] p-4 sm:p-8 relative bg-[#e3d2b0]/60 text-center min-h-[1020px] sm:min-h-[1170px] flex-1 flex flex-col justify-between">
         
         {/* Header Badge */}

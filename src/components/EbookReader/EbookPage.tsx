@@ -4,6 +4,7 @@ import { ChaptersMetaData, EBOOK_PAGES } from '../../data/ebookContent';
 import { OrnamentalDivider } from '../OrnamentalDivider';
 import { MedallionBustIcon, DoorwayShadowIcon, CompassStarIcon, GreekGoddessIcon } from '../VintageSvgIcons';
 import { MessageSquare, Check, Sparkles, AlertCircle, BookOpen, Layers, Edit3, HelpCircle } from 'lucide-react';
+import { getPageSizeClass } from '../../config/ebookConfig';
 
 interface EbookPageProps {
   pageData: EbookPageData;
@@ -14,6 +15,7 @@ interface EbookPageProps {
   onNavigatePage?: (pageNumber: number) => void;
   isBookmarked?: boolean;
   onToggleBookmark?: (pageNumber: number) => void;
+  pageSize?: string;
 }
 
 export const EbookPage: React.FC<EbookPageProps> = ({
@@ -25,7 +27,10 @@ export const EbookPage: React.FC<EbookPageProps> = ({
   onNavigatePage,
   isBookmarked = false,
   onToggleBookmark,
+  pageSize,
 }) => {
+  const pageId = `page-${pageData.pageNumber}`;
+  const pageSizeClass = pageSize || getPageSizeClass(pageId);
   const fontClassMap = {
     'playfair': 'font-playfair',
     'baskerville': 'font-baskerville',
@@ -218,7 +223,7 @@ export const EbookPage: React.FC<EbookPageProps> = ({
   );
 
   return (
-    <article className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-10 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl relative transition-all bg-[#dfceaa] print-page-sheet min-h-[1100px] sm:min-h-[1250px] flex flex-col justify-between">
+    <article className={`w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-10 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl relative transition-all bg-[#dfceaa] print-page-sheet flex flex-col justify-between ${pageSizeClass}`}>
       
       {/* Top Header & Page Header Bar */}
       <header className="border-b border-[#120e0a]/40 pb-3 mb-6 flex items-center justify-between gap-4 font-mono text-xs text-[#5d4025]">

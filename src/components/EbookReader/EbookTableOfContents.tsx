@@ -1,17 +1,21 @@
 import React from 'react';
 import { ChaptersMetaData, EBOOK_PAGES } from '../../data/ebookContent';
 import { OrnamentalDivider } from '../OrnamentalDivider';
+import { getPageSizeClass } from '../../config/ebookConfig';
 
 interface EbookTableOfContentsProps {
   currentPageNumber?: number;
   onSelectPage?: (pageNumber: number) => void;
   onClose?: () => void;
   completedPages?: number[];
+  pageSize?: string;
 }
 
-export const EbookTableOfContents: React.FC<EbookTableOfContentsProps> = () => {
+export const EbookTableOfContents: React.FC<EbookTableOfContentsProps> = ({ pageSize }) => {
+  const pageSizeClass = pageSize || getPageSizeClass('page-toc');
+
   return (
-    <div className="w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-8 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl print-page-sheet min-h-[1100px] sm:min-h-[1250px] flex flex-col justify-between bg-[#dfceaa]">
+    <div className={`w-full max-w-4xl mx-auto my-6 sm:my-10 p-4 sm:p-8 paper-card border-2 border-[#120e0a] rounded-sm shadow-2xl print-page-sheet flex flex-col justify-between bg-[#dfceaa] ${pageSizeClass}`}>
       <div className="border-4 border-double border-[#120e0a] p-4 sm:p-6 relative bg-[#e3d2b0]/50 min-h-[1020px] sm:min-h-[1170px] flex-1 flex flex-col justify-between">
       
       {/* Header */}

@@ -158,18 +158,22 @@ export default function App() {
       <main className="flex-1 px-2 sm:px-4 py-4 max-w-7xl mx-auto w-full">
         
         {viewMode === 'cover' && (
-          <EbookCover
-            onStartReading={() => handlePageChange(1)}
-            onOpenIndex={() => setViewMode('index')}
-          />
+          <div id="page-cover" className="relative">
+            <EbookCover
+              onStartReading={() => handlePageChange(1)}
+              onOpenIndex={() => setViewMode('index')}
+            />
+          </div>
         )}
 
         {viewMode === 'index' && (
-          <EbookTableOfContents
-            currentPageNumber={currentPageNumber}
-            onSelectPage={handlePageChange}
-            completedPages={readPages}
-          />
+          <div id="page-toc" className="relative">
+            <EbookTableOfContents
+              currentPageNumber={currentPageNumber}
+              onSelectPage={handlePageChange}
+              completedPages={readPages}
+            />
+          </div>
         )}
 
         {viewMode === 'reading' && (
@@ -209,7 +213,7 @@ export default function App() {
                   </div>
                 ))}
 
-                {/* 3. CONTRAPORTADA / BACK COVER SHEET */}
+                {/* 4. CONTRAPORTADA / BACK COVER SHEET */}
                 <div id="page-backcover" className="relative">
                   <EbookBackCover
                     onReturnToCover={() => {
@@ -222,26 +226,30 @@ export default function App() {
                 </div>
               </>
             ) : (
-              <EbookPage
-                pageData={currentPageData}
-                fontSize={fontSize}
-                fontFamily={fontFamily}
-                userWorkbookState={userWorkbookState}
-                onSaveWorkbookEntry={handleSaveWorkbookEntry}
-                onNavigatePage={handlePageChange}
-                isBookmarked={bookmarks.includes(currentPageNumber)}
-                onToggleBookmark={() => handleToggleBookmark(currentPageNumber)}
-              />
+              <div id={`page-${currentPageNumber}`} className="relative">
+                <EbookPage
+                  pageData={currentPageData}
+                  fontSize={fontSize}
+                  fontFamily={fontFamily}
+                  userWorkbookState={userWorkbookState}
+                  onSaveWorkbookEntry={handleSaveWorkbookEntry}
+                  onNavigatePage={handlePageChange}
+                  isBookmarked={bookmarks.includes(currentPageNumber)}
+                  onToggleBookmark={() => handleToggleBookmark(currentPageNumber)}
+                />
+              </div>
             )}
           </div>
         )}
 
         {viewMode === 'backcover' && (
-          <EbookBackCover
-            onReturnToCover={() => setViewMode('cover')}
-            onOpenIndex={() => setViewMode('index')}
-            onOpenWorkbookManager={() => setIsWorkbookOpen(true)}
-          />
+          <div id="page-backcover" className="relative">
+            <EbookBackCover
+              onReturnToCover={() => setViewMode('cover')}
+              onOpenIndex={() => setViewMode('index')}
+              onOpenWorkbookManager={() => setIsWorkbookOpen(true)}
+            />
+          </div>
         )}
 
       </main>

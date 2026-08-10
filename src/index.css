@@ -145,13 +145,61 @@ html {
   background: #120e0a;
 }
 
-/* PDF & Print Styles */
-@media print {
-  @page {
-    size: 8.5in 14in portrait;
-    margin: 8mm 10mm;
-  }
+/* PDF & Print Styles with Named @page Rules */
+@page legal-page {
+  size: 8.5in 14in portrait;
+  margin: 0;
+}
 
+@page a4-page {
+  size: 210mm 297mm portrait;
+  margin: 0;
+}
+
+@page letter-page {
+  size: 8.5in 11in portrait;
+  margin: 0;
+}
+
+@page custom-page {
+  size: 8.5in 12.8in portrait;
+  margin: 0;
+}
+
+/* Page Size Utility Classes */
+.page-legal {
+  page: legal-page;
+  page-break-after: always;
+  break-after: page;
+  width: 8.5in;
+  min-height: 14in;
+}
+
+.page-a4 {
+  page: a4-page;
+  page-break-after: always;
+  break-after: page;
+  width: 210mm;
+  min-height: 297mm;
+}
+
+.page-letter {
+  page: letter-page;
+  page-break-after: always;
+  break-after: page;
+  width: 8.5in;
+  min-height: 11in;
+}
+
+.page-custom {
+  page: custom-page;
+  page-break-after: always;
+  break-after: page;
+  width: 8.5in;
+  min-height: 12.8in;
+}
+
+@media print {
   body {
     background-color: #ffffff !important;
     background-image: none !important;
@@ -171,19 +219,13 @@ html {
     border: 1px solid #120e0a !important;
     page-break-inside: avoid;
     break-inside: avoid;
-    page-break-after: always;
-    break-after: page;
     margin-bottom: 0 !important;
     padding: 1.5rem !important;
   }
 
   .print-page-sheet {
-    width: 100% !important;
     max-width: none !important;
-    min-height: 12.8in !important;
     box-sizing: border-box !important;
-    page-break-after: always !important;
-    break-after: page !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
